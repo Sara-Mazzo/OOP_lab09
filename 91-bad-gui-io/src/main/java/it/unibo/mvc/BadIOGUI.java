@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.List;
+import java.nio.file.Path;
 import java.util.Random;
 
 /**
@@ -42,8 +42,12 @@ public class BadIOGUI {
     public BadIOGUI() {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
+        //EX 01.01
+        final JPanel canvas2 = new JPanel();
+        canvas2.setLayout(new BoxLayout(canvas2, BoxLayout.X_AXIS));
+        canvas.add(canvas2, BorderLayout.CENTER);
         final JButton write = new JButton("Write on file");
-        canvas.add(write, BorderLayout.CENTER);
+        canvas2.add(write);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*
@@ -64,6 +68,23 @@ public class BadIOGUI {
                 } catch (final IOException e) {
                     JOptionPane.showMessageDialog(frame, e, "Error", JOptionPane.ERROR_MESSAGE);
                     e.printStackTrace(); // NOPMD: allowed as this is just an exercise
+                }
+            }
+        });
+        //EX 01.02
+        final JButton read = new JButton("Read");
+        canvas2.add(read);
+        read.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                try {
+                    //usiamo Path.of() e Files.readAllLines() perchè sono metodi statici
+                    for (final String s : Files.readAllLines(Path.of(PATH), StandardCharsets.UTF_8)) {
+                        System.out.println(s); //NOPMD
+                    }
+                } catch (final IOException exception) {
+                    JOptionPane.showMessageDialog(frame, e, "Error", JOptionPane.ERROR_MESSAGE);
+                    exception.printStackTrace(); // NOPMD: allowed as this is just an exercise
                 }
             }
         });
@@ -88,6 +109,10 @@ public class BadIOGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
+        /*
+         * resize the frame to the minimum size prior to displaying
+         */
+        frame.pack();
         /*
          * OK, ready to push the frame onscreen
          */
