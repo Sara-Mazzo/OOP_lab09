@@ -34,8 +34,8 @@ public final class SimpleController implements Controller {
         if (nextString == null) {
             throw new IllegalStateException("No strings have been set");
         } else {
-            System.out.println(nextString); //NOPMD
             printHistory.add(nextString);
+            System.out.println(nextString); //NOPMD
         }
     }
 

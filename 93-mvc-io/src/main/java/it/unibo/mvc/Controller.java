@@ -10,7 +10,7 @@ public interface Controller {
     /**
      * @param string is the string we want to print next
      */
-    void setNextStringToPrint(final String string);
+    void setNextStringToPrint(String string);
 
     /**
      * @return the string that is next in line to be printed
