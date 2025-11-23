@@ -92,7 +92,7 @@ public final class SimpleGUIWithFileChooser {
      * 
      * @param args unused
      */
-    public static void main(final String args) {
+    public static void main(final String... args) {
         new SimpleGUIWithFileChooser(new Controller()).display();
     }
 }

@@ -65,7 +65,7 @@ public final class SimpleGUI {
      * 
      * @param args unused
      */
-    public static void main(final String args) {
+    public static void main(final String... args) {
         new SimpleGUI(new Controller()).display();
     }
 
