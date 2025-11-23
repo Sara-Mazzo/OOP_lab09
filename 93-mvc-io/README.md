@@ -20,6 +20,6 @@ Once the `Controller` is done, implement the `SimpleGUI` class in such a way tha
 3. The graphical interface consists of a `JTextField` in the upper part of the frame,
 a `JTextArea` in the center and two buttons below it: "Print", and "Show history".
 SUGGESTION: Use a `JPanel` with `BorderLayout`
-4. By default, if the graphical interface is closed the program must exit (call `setDefaultCloseOperation`) 
+4. By default, if the graphical interface is closed the program must exit (call `setDefaultCloseOperation`)
 5. The behavior of the program is that, if "Print" is pressed, the controller is asked to show the string contained in the text field on standard output.
 If "show history" is pressed instead, the GUI must show all the prints that have been done to this moment in the text area.
